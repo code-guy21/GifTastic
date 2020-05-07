@@ -1,1 +1,3 @@
+let topics = [""];
+
 $(document).ready(() => {});

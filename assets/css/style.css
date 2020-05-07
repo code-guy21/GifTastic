@@ -1,0 +1,30 @@
+header,
+main,
+section {
+  border: 1px solid blue;
+}
+
+body {
+  height: 100vh;
+}
+
+main,
+#content {
+  flex-grow: 20;
+}
+
+#gifs {
+  flex-grow: 2;
+}
+
+.grow-1 {
+  flex-grow: 1;
+}
+
+.flex {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;
+}
