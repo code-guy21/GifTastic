@@ -52,6 +52,10 @@ main {
   height: 50%;
 }
 
+#images {
+  flex-wrap: wrap;
+}
+
 .flex {
   display: flex;
 }

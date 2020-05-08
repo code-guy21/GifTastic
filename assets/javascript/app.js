@@ -1,34 +1,35 @@
-let topics = [""];
-let query =
-  "http://api.giphy.com/v1/gifs/trending?api_key=GG3nuwnZU6fm89I1KysFNlx7x9sKXaZH&limit=10";
-let total = 0;
+let topics = [
+  "happy",
+  "keanu",
+  "smh",
+  "dance",
+  "dog",
+  "awkward",
+  "wink",
+  "nope",
+  "whatever",
+];
+
+const API_KEY = "GG3nuwnZU6fm89I1KysFNlx7x9sKXaZH";
+const base_url = "http://api.giphy.com/v1/gifs/";
 
 const populateGifs = (gifs) => {
   //loop through each GIF object
   gifs.forEach((gif) => {
-    //add another row if row exceeds 5 elements
-    if (total % 5 === 0) {
-      let row = $("<div>").attr({
-        class: "row flex",
-        id: total / 5,
-      });
-
-      $("#images").append(row);
-    }
-
-    //create GIF image element
-    let img = $("<img>").attr({
-      src: gif.images.original.url,
-      id: gif.id,
-      width: "20%",
-    });
-
-    //append GIF to appropriate row
-    $(".row#" + Math.floor(total / 5)).append(img);
-
-    //increase total amount of GIFS on page
-    total++;
+    //call addGif function
+    addGif(gif);
   });
+};
+
+const addGif = (gif) => {
+  //create GIF image element
+  let img = $("<img>").attr({
+    src: gif.images.original.url,
+    id: gif.id,
+  });
+
+  //add GIF to page
+  $("#images").append(img);
 };
 
 //handles requests to GIPHY API
@@ -47,8 +48,8 @@ const requestGifs = (query) => {
     });
 };
 
-//Application starts on document loaded
+//Application starts on document load
 $(document).ready(() => {
-  //initial API request to populate page
-  requestGifs(query);
+  //initial API request to populate page with trending GIFs
+  requestGifs(base_url + "trending?api_key=" + API_KEY + "&limit=10");
 });
