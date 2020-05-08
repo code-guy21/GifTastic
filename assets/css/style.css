@@ -1,6 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
 header,
 main,
-section {
+section,
+div {
   border: 1px solid blue;
 }
 
@@ -8,17 +13,43 @@ body {
   height: 100vh;
 }
 
-main,
+h1 {
+  border: 1px solid red;
+}
+
+header {
+  height: 10%;
+}
+
+main {
+  height: 90%;
+}
+
+#add {
+  height: 10%;
+}
+
 #content {
-  flex-grow: 20;
+  height: 90%;
 }
 
 #gifs {
-  flex-grow: 2;
+  width: 60%;
+  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
-.grow-1 {
-  flex-grow: 1;
+#topics {
+  width: 40%;
+}
+
+#categories {
+  height: 50%;
+}
+
+#favorites {
+  height: 50%;
 }
 
 .flex {

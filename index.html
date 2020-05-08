@@ -10,18 +10,34 @@
     <title>GifTastic</title>
   </head>
   <body class="flex column">
-    <header class="grow-1">Giftastic</header>
+    <!--Header-->
+    <header>
+      <h1>GifTastic</h1>
+    </header>
+
+    <!--Main Section-->
     <main class="flex column">
-      <section class="grow-1" id="add">
-        <input type="text" />
+      <!--Section to add GIF category-->
+      <section id="add">
+        <input placeholder="...add category" type="text" />
       </section>
+
+      <!--Content Section-->
       <section class="flex" id="content">
+        <!--GIF display-->
         <section id="gifs">
-          gifs
+          <h1>gifs</h1>
+          <div class="flex column" id="images"></div>
         </section>
-        <section class="flex grow-1 column" id="topics">
-          <section class="grow-1" id="categories">categories</section>
-          <section class="grow-1" id="favorites">favorites</section>
+
+        <!--Categories Section-->
+        <section class="flex column" id="topics">
+          <div id="categories">
+            <h1>categories</h1>
+          </div>
+          <div id="favorites">
+            <h1>favorites</h1>
+          </div>
         </section>
       </section>
     </main>
