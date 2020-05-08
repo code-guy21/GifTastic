@@ -40,11 +40,11 @@ main {
   overflow-x: auto;
 }
 
-#topics {
+#categories {
   width: 40%;
 }
 
-#categories {
+#topics {
   height: 50%;
 }
 
