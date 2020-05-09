@@ -11,6 +11,8 @@ let topics = [
   "whatever",
 ];
 
+let current;
+
 const API_KEY = "GG3nuwnZU6fm89I1KysFNlx7x9sKXaZH";
 const base_url = "http://api.giphy.com/v1/gifs/";
 
@@ -35,14 +37,33 @@ const addTopic = (topic) => {
 const addGif = (gif) => {
   console.log(gif);
   //create GIF image element
-  let img = $("<img>").attr({
-    src: gif.images.fixed_height_still.url,
-    id: gif.id,
-    still: gif.images.fixed_height_still.url,
-    animate: gif.images.fixed_height.url,
-    state: "still",
+  let img = $("<button>")
+    .attr({
+      src: gif.images.fixed_height_still.url,
+      id: gif.id,
+      still: gif.images.fixed_height_still.url,
+      animate: gif.images.fixed_height.url,
+      state: "still",
+      class: "gif",
+    })
+    .css({
+      "background-image": "url(" + gif.images.fixed_height_still.url + ")",
+      "background-size": "cover",
+      height: gif.images.fixed_height.height,
+      width: gif.images.fixed_height.width,
+      position: "relative",
+    });
+
+  let rating = $("<div>" + gif.rating + "</div>").css({
+    color: "white",
+    position: "absolute",
+    bottom: "0px",
+    left: "0px",
+    "font-size": "15px",
+    background: "black",
   });
 
+  img.append(rating);
   //add GIF to page
   $("#images").append(img);
 };
@@ -70,21 +91,36 @@ $(document).ready(() => {
 
   $(document).on("click", ".topic", function () {
     let topic = $(this).val();
-    let query =
-      topic === "trending"
-        ? base_url + "trending?api_key=" + API_KEY + "&limit=10"
-        : base_url + "search?api_key=" + API_KEY + "&q=" + topic + "&limit=10";
+    if (!current || current !== topic) {
+      current = topic;
+      let query =
+        topic === "trending"
+          ? base_url + "trending?api_key=" + API_KEY + "&limit=10"
+          : base_url +
+            "search?api_key=" +
+            API_KEY +
+            "&q=" +
+            topic +
+            "&limit=10";
 
-    requestGifs(query);
+      //clear previous GIFs
+      $("#images").empty();
+      requestGifs(query);
+    }
   });
 
-  $(document).on("click", "img", function () {
+  $(document).on("click", ".gif", function () {
     let gif = $(this);
     if (gif.attr("state") === "still") {
-      gif.attr("src", gif.attr("animate"));
+      gif.css({
+        "background-image": "url(" + gif.attr("animate") + ")",
+      });
+
       gif.attr("state", "animate");
     } else {
-      gif.attr("src", gif.attr("still"));
+      gif.css({
+        "background-image": "url(" + gif.attr("still") + ")",
+      });
       gif.attr("state", "still");
     }
   });
