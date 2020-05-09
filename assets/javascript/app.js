@@ -35,11 +35,10 @@ const addTopic = (topic) => {
     .css({
       display: "flex",
       "flex-direction": "row",
-      height: "30px",
       width: "150px",
     });
 
-  let btn = $("<button>")
+  let btn = $("<div>")
     .text(topic)
     .attr({
       value: topic,
@@ -47,6 +46,7 @@ const addTopic = (topic) => {
     })
     .css({
       width: "80%",
+      padding: "8px",
     });
 
   let remove = $("<span>")
@@ -60,7 +60,7 @@ const addTopic = (topic) => {
           class: " fas fa-times",
         })
         .css({
-          padding: "5px",
+          padding: "8px",
         })
     );
 
@@ -75,7 +75,7 @@ const addTopic = (topic) => {
           class: " far fa-heart",
         })
         .css({
-          padding: "5px",
+          padding: "8px",
         })
     );
 
@@ -118,7 +118,7 @@ const requestGifs = (query) => {
     method: "GET",
   })
     .then((response) => {
-      console.log(response);
+      console.log(response, query);
       if (response.data.length === 0) {
         $("#images").html("<div>no GIFs found</div>");
       } else {
@@ -138,7 +138,7 @@ $(document).ready(() => {
   populate(topics, addTopic);
 
   $(document).on("click", ".topic", function () {
-    let topic = $(this).val();
+    let topic = $(this).text();
     if (!current || current !== topic) {
       current = topic;
       let query =
