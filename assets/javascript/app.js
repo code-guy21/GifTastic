@@ -35,6 +35,8 @@ const addTopic = (topic) => {
     .css({
       display: "flex",
       "flex-direction": "row",
+      height: "30px",
+      width: "150px",
     });
 
   let btn = $("<button>")
@@ -43,21 +45,39 @@ const addTopic = (topic) => {
       value: topic,
       class: "topic",
     })
-    .css("flex-grow", "1");
+    .css({
+      width: "80%",
+    });
 
-  let remove = $("<button>")
-    .text("x")
+  let remove = $("<span>")
     .attr({
       class: "remove",
     })
-    .css("flex-grow", "1");
+    .css("width", "20%")
+    .append(
+      $("<i>")
+        .attr({
+          class: " fas fa-times",
+        })
+        .css({
+          padding: "5px",
+        })
+    );
 
-  let fav = $("<button>")
-    .text("*")
+  let fav = $("<span>")
     .attr({
       class: "fav",
     })
-    .css("flex-grow", "1");
+    .css("width", "20%")
+    .append(
+      $("<i>")
+        .attr({
+          class: " far fa-heart",
+        })
+        .css({
+          padding: "5px",
+        })
+    );
 
   contain.append(fav).append(btn).append(remove);
 
@@ -175,8 +195,10 @@ $(document).ready(() => {
     let topic = $(this).closest("div");
 
     if (!favorites.includes(topic.attr("id"))) {
-      topic.clone().appendTo("#favorites");
-      favorites.push(topic.attr("id"));
+      let clone = topic.clone();
+      clone.children(".fav").remove();
+      clone.appendTo("#favorites");
+      favorites.push(clone.attr("id"));
     }
   });
 

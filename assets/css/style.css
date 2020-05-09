@@ -11,26 +11,36 @@ div {
 
 body {
   height: 100vh;
+  text-align: center;
 }
 
 h1 {
   border: 1px solid red;
+  font-family: sans-serif;
+  font-size: 20px;
+  padding: 5px;
 }
 
 header {
-  height: 10%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
 }
 
 main {
-  height: 90%;
+  height: 95%;
 }
 
 #form {
-  height: 10%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
 }
 
 #content {
-  height: 90%;
+  height: 95%;
 }
 
 #gifs {
@@ -85,6 +95,12 @@ main {
   background: yellow;
 }
 
-.topic {
-  padding: 10px;
+@media screen and (max-width: 770px) {
+  .btn-group {
+    width: 100% !important;
+  }
+
+  .gif {
+    width: 100% !important;
+  }
 }
