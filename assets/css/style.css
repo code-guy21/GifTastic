@@ -25,7 +25,7 @@ main {
   height: 90%;
 }
 
-#add {
+#form {
   height: 10%;
 }
 
@@ -54,6 +54,16 @@ main {
 
 #images {
   flex-wrap: wrap;
+  width: 100%;
+}
+
+.rating {
+  color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  font-size: 15px;
+  background: black;
 }
 
 .flex {

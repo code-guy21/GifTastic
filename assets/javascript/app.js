@@ -35,7 +35,6 @@ const addTopic = (topic) => {
 };
 
 const addGif = (gif) => {
-  console.log(gif);
   //create GIF image element
   let img = $("<button>")
     .attr({
@@ -47,21 +46,14 @@ const addGif = (gif) => {
       class: "gif",
     })
     .css({
-      "background-image": "url(" + gif.images.fixed_height_still.url + ")",
-      "background-size": "cover",
+      "background-image": "url(" + gif.images.fixed_height_still.url + ") ",
+      "background-size": "100% 100%",
       height: gif.images.fixed_height.height,
       width: gif.images.fixed_height.width,
       position: "relative",
     });
 
-  let rating = $("<div>" + gif.rating + "</div>").css({
-    color: "white",
-    position: "absolute",
-    bottom: "0px",
-    left: "0px",
-    "font-size": "15px",
-    background: "black",
-  });
+  let rating = $("<div>" + gif.rating + "</div>").attr("class", "rating");
 
   img.append(rating);
   //add GIF to page
@@ -75,8 +67,13 @@ const requestGifs = (query) => {
     method: "GET",
   })
     .then((response) => {
-      //add GIFS to page
-      populate(response.data, addGif);
+      console.log(response);
+      if (response.data.length === 0) {
+        $("#images").html("<div>no GIFs found</div>");
+      } else {
+        //add GIFS to page
+        populate(response.data, addGif);
+      }
     })
     .catch((error) => {
       //display error message to page
@@ -122,6 +119,15 @@ $(document).ready(() => {
         "background-image": "url(" + gif.attr("still") + ")",
       });
       gif.attr("state", "still");
+    }
+  });
+
+  $("#submit").click(() => {
+    event.preventDefault();
+    let topic = $("#add").val().toLowerCase().trim();
+    if (!topics.includes(topic)) {
+      addTopic(topic);
+      topics.push(topic);
     }
   });
 });
