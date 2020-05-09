@@ -25,17 +25,21 @@ const populate = (data, method) => {
 };
 
 const addTopic = (topic) => {
-  let contain = $("<div>").css({
-    display: "flex",
-    "flex-direction": "row",
-  });
+  let contain = $("<div>")
+    .attr({
+      id: topic,
+      class: "btn-group",
+    })
+    .css({
+      display: "flex",
+      "flex-direction": "row",
+    });
 
   let btn = $("<button>")
     .text(topic)
     .attr({
       value: topic,
       class: "topic",
-      id: topic,
     })
     .css("flex-grow", "1");
 
@@ -145,6 +149,14 @@ $(document).ready(() => {
       });
       gif.attr("state", "still");
     }
+  });
+
+  $(document).on("click", ".remove", function () {
+    $(this).closest("div").remove();
+  });
+
+  $(document).on("click", ".fav", function () {
+    console.log($(this).closest("div"));
   });
 
   $("#submit").click(() => {

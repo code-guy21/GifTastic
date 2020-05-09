@@ -44,7 +44,7 @@ main {
   width: 40%;
 }
 
-#topics-container {
+.container {
   height: 50%;
   overflow: scroll;
   overflow-y: auto;
@@ -54,10 +54,6 @@ main {
 #topics {
   display: flex;
   flex-wrap: wrap;
-}
-
-#favorites {
-  height: 50%;
 }
 
 #images {
