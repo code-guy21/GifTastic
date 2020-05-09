@@ -16,7 +16,7 @@ let favorites = [];
 let current;
 
 const API_KEY = "GG3nuwnZU6fm89I1KysFNlx7x9sKXaZH";
-const base_url = "http://api.giphy.com/v1/gifs/";
+const base_url = "https://api.giphy.com/v1/gifs/";
 
 const populate = (data, method) => {
   //loop through each GIF object
