@@ -51,11 +51,6 @@ main {
   overflow-x: auto;
 }
 
-#topics {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 #images {
   flex-wrap: wrap;
   width: 100%;
@@ -76,6 +71,10 @@ main {
 
 .column {
   flex-direction: column;
+}
+
+.wrap {
+  flex-wrap: wrap;
 }
 
 .remove {

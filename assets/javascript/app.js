@@ -11,6 +11,8 @@ let topics = [
   "whatever",
 ];
 
+let favorites = [];
+
 let current;
 
 const API_KEY = "GG3nuwnZU6fm89I1KysFNlx7x9sKXaZH";
@@ -152,11 +154,30 @@ $(document).ready(() => {
   });
 
   $(document).on("click", ".remove", function () {
-    $(this).closest("div").remove();
+    let topic = $(this);
+
+    if (topic.closest(".container").attr("id") === "topic-container") {
+      let topic_index = topics.indexOf($(this).closest("div").attr("id"));
+      if (topic_index !== -1) {
+        topics.splice(topic_index, 1);
+        $(this).closest("div").remove();
+      }
+    } else {
+      let fav_index = favorites.indexOf($(this).closest("div").attr("id"));
+      if (fav_index !== -1) {
+        favorites.splice(fav_index, 1);
+        $(this).closest("div").remove();
+      }
+    }
   });
 
   $(document).on("click", ".fav", function () {
-    console.log($(this).closest("div"));
+    let topic = $(this).closest("div");
+
+    if (!favorites.includes(topic.attr("id"))) {
+      topic.clone().appendTo("#favorites");
+      favorites.push(topic.attr("id"));
+    }
   });
 
   $("#submit").click(() => {
