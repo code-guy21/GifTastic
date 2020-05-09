@@ -205,7 +205,7 @@ $(document).ready(() => {
   $("#submit").click(() => {
     event.preventDefault();
     let topic = $("#add").val().toLowerCase().trim();
-    if (!topics.includes(topic)) {
+    if (!topics.includes(topic) && topic !== "") {
       addTopic(topic);
       topics.push(topic);
       $("#add").val("");
