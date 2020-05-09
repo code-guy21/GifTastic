@@ -33,10 +33,14 @@ const addTopic = (topic) => {
 };
 
 const addGif = (gif) => {
+  console.log(gif);
   //create GIF image element
   let img = $("<img>").attr({
-    src: gif.images.fixed_height.url,
+    src: gif.images.fixed_height_still.url,
     id: gif.id,
+    still: gif.images.fixed_height_still.url,
+    animate: gif.images.fixed_height.url,
+    state: "still",
   });
 
   //add GIF to page
@@ -61,21 +65,27 @@ const requestGifs = (query) => {
 
 //Application starts on document load
 $(document).ready(() => {
-  //initial API request to populate page with trending GIFs
-  requestGifs(base_url + "trending?api_key=" + API_KEY + "&limit=10");
   //populate topics with buttons
   populate(topics, addTopic);
 
   $(document).on("click", ".topic", function () {
     let topic = $(this).val();
-    let query;
+    let query =
+      topic === "trending"
+        ? base_url + "trending?api_key=" + API_KEY + "&limit=10"
+        : base_url + "search?api_key=" + API_KEY + "&q=" + topic + "&limit=10";
 
-    if (topic === "trending") {
-      query = base_url + "trending?api_key=" + API_KEY + "&limit=10";
-    } else {
-      query =
-        base_url + "search?api_key=" + API_KEY + "&q=" + topic + "&limit=10";
-    }
     requestGifs(query);
+  });
+
+  $(document).on("click", "img", function () {
+    let gif = $(this);
+    if (gif.attr("state") === "still") {
+      gif.attr("src", gif.attr("animate"));
+      gif.attr("state", "animate");
+    } else {
+      gif.attr("src", gif.attr("still"));
+      gif.attr("state", "still");
+    }
   });
 });
