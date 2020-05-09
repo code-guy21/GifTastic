@@ -44,8 +44,16 @@ main {
   width: 40%;
 }
 
-#topics {
+#topics-container {
   height: 50%;
+  overflow: scroll;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+#topics {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #favorites {
@@ -72,4 +80,16 @@ main {
 
 .column {
   flex-direction: column;
+}
+
+.remove {
+  background: red;
+}
+
+.fav {
+  background: yellow;
+}
+
+.topic {
+  padding: 10px;
 }

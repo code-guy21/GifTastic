@@ -25,13 +25,38 @@ const populate = (data, method) => {
 };
 
 const addTopic = (topic) => {
-  let btn = $("<button>").text(topic).attr({
-    value: topic,
-    class: "topic",
+  let contain = $("<div>").css({
+    display: "flex",
+    "flex-direction": "row",
   });
 
+  let btn = $("<button>")
+    .text(topic)
+    .attr({
+      value: topic,
+      class: "topic",
+      id: topic,
+    })
+    .css("flex-grow", "1");
+
+  let remove = $("<button>")
+    .text("x")
+    .attr({
+      class: "remove",
+    })
+    .css("flex-grow", "1");
+
+  let fav = $("<button>")
+    .text("*")
+    .attr({
+      class: "fav",
+    })
+    .css("flex-grow", "1");
+
+  contain.append(fav).append(btn).append(remove);
+
   //add GIF to page
-  $("#topics").append(btn);
+  $("#topics").append(contain);
 };
 
 const addGif = (gif) => {
@@ -128,6 +153,7 @@ $(document).ready(() => {
     if (!topics.includes(topic)) {
       addTopic(topic);
       topics.push(topic);
+      $("#add").val("");
     }
   });
 });
