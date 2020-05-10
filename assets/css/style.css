@@ -5,21 +5,19 @@
 body {
   height: 100vh;
   text-align: center;
-  padding: 10px;
+  font-family: "Varela", sans-serif;
 }
 
 h1 {
-  font-family: sans-serif;
   font-size: 20px;
   padding: 5px;
   background: rgb(33, 218, 202);
   color: white;
+  font-weight: bold;
 }
 
 header {
   height: 8%;
-  display: flex;
-  justify-content: center;
   background: rgb(33, 218, 202);
 }
 
@@ -29,10 +27,6 @@ main {
 
 #form {
   height: 8%;
-  display: flex;
-  justify-content: center;
-  display: flex;
-  align-items: center;
 }
 
 #content {
@@ -47,15 +41,16 @@ main {
   width: 40%;
 }
 
+#gif-container {
+  height: 100%;
+}
+
 .container {
   height: 50%;
   overflow: scroll;
   overflow-y: auto;
   overflow-x: auto;
-}
-
-#gif-container {
-  height: 100%;
+  padding: 5px;
 }
 
 .rating {
@@ -67,6 +62,34 @@ main {
   background: black;
 }
 
+.btn-group {
+  width: 150px;
+  border: 1px solid grey;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.gif {
+  background-size: 100% 100%;
+  position: relative;
+}
+
+#add,
+#submit {
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.topic {
+  width: 80%;
+  padding: 8px;
+}
+
+.remove,
+.fav {
+  width: 20%;
+}
+
 .flex {
   display: flex;
 }
@@ -75,34 +98,26 @@ main {
   flex-direction: column;
 }
 
+.row {
+  flex-direction: row;
+}
+
 .wrap {
   flex-wrap: wrap;
-}
-
-.remove {
-}
-
-.fav {
 }
 
 .align-center {
   align-items: center;
 }
 
-#add {
-  padding: 5px;
-  border-radius: 8px;
-}
-
-#submit {
-  padding: 5px;
-  border-radius: 8px;
+.justify-center {
+  justify-content: center;
 }
 
 @media screen and (max-width: 770px) {
   .btn-group {
-    width: 100% !important;
-    margin: 1px !important;
+    width: 100%;
+    margin: 2px;
   }
 
   .gif {

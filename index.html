@@ -3,6 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Yatra Font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap"
+      rel="stylesheet"
+    />
+    <!--Varela Font-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela&display=swap"
+      rel="stylesheet"
+    />
     <!--Reset CSS-->
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <!--Custom CSS-->
@@ -11,7 +21,7 @@
   </head>
   <body class="flex column">
     <!--Header-->
-    <header>
+    <header class="flex justify-center">
       <div class="align-center flex">
         <h1>GifTastic</h1>
       </div>
@@ -19,8 +29,8 @@
 
     <!--Main Section-->
     <main class="flex column">
-      <!--Section to add GIF category-->
-      <section id="form">
+      <!--Form to add topic-->
+      <section class="flex justify-center align-center" id="form">
         <form>
           <input id="add" placeholder="...add topic" type="text" />
           <button id="submit" type="submit">add</button>
