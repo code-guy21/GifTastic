@@ -50,7 +50,7 @@ const addTopic = (value) => {
           class: " fas fa-times",
         })
         .css({
-          padding: "8px",
+          padding: "12px",
         })
     );
 
@@ -65,7 +65,7 @@ const addTopic = (value) => {
           class: " far fa-heart",
         })
         .css({
-          padding: "8px",
+          padding: "12px",
           color: "red",
         })
     );

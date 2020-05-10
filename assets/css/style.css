@@ -10,27 +10,32 @@ body {
 
 h1 {
   font-size: 20px;
-  padding: 5px;
-  background: rgb(33, 218, 202);
+  padding: 8px;
+  background: #3500d3;
   color: white;
   font-weight: bold;
 }
 
 header {
-  height: 8%;
-  background: rgb(33, 218, 202);
+  height: 10%;
+  background: #3500d3;
+}
+
+header h1 {
+  font-size: 35px;
+  font-weight: bolder;
 }
 
 main {
-  height: 92%;
+  height: 90%;
 }
 
 #form {
-  height: 8%;
+  height: 10%;
 }
 
 #content {
-  height: 92%;
+  height: 90%;
 }
 
 #gifs {
@@ -43,6 +48,8 @@ main {
 
 #gif-container {
   height: 100%;
+  padding: 0px;
+  border-left: 1px solid grey;
 }
 
 .container {
@@ -50,7 +57,7 @@ main {
   overflow: scroll;
   overflow-y: auto;
   overflow-x: auto;
-  padding: 5px;
+  padding: 8px;
 }
 
 .rating {
@@ -63,7 +70,7 @@ main {
 }
 
 .btn-group {
-  width: 150px;
+  width: 200px;
   border: 1px solid grey;
   margin: 5px;
   border-radius: 5px;
@@ -76,13 +83,27 @@ main {
 
 #add,
 #submit {
-  padding: 5px;
-  border-radius: 8px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid grey;
+  font-size: 15px;
+}
+
+#add {
+  width: 180px;
+  font-family: "Varela", sans-serif;
+}
+
+#submit {
+  width: 50px;
+  font-family: "Varela", sans-serif;
+  -webkit-appearance: none;
+  background-color: white;
 }
 
 .topic {
   width: 80%;
-  padding: 8px;
+  padding: 12px;
 }
 
 .remove,
@@ -136,5 +157,9 @@ main {
 
   #content {
     flex-wrap: wrap-reverse;
+  }
+
+  #gif-container {
+    padding: 8px;
   }
 }
