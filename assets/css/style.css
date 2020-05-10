@@ -66,7 +66,8 @@ main {
   bottom: 0px;
   left: 0px;
   font-size: 15px;
-  background: black;
+  background: none;
+  padding: 5px;
 }
 
 .btn-group {
@@ -103,7 +104,7 @@ main {
 
 .topic {
   width: 80%;
-  padding: 12px;
+  padding: 15px;
 }
 
 .remove,
