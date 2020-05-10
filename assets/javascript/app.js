@@ -36,6 +36,9 @@ const addTopic = (topic) => {
       display: "flex",
       "flex-direction": "row",
       width: "150px",
+      border: "1px solid grey",
+      margin: "5px",
+      "border-radius": "5px",
     });
 
   let btn = $("<div>")
@@ -47,6 +50,7 @@ const addTopic = (topic) => {
     .css({
       width: "80%",
       padding: "8px",
+      "font-family": "sans-serif",
     });
 
   let remove = $("<span>")
@@ -76,6 +80,7 @@ const addTopic = (topic) => {
         })
         .css({
           padding: "8px",
+          color: "red",
         })
     );
 
