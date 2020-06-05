@@ -1,3 +1,22 @@
+$.ajax({
+  type: "GET",
+  url: "https://www.googleapis.com/youtube/v3/search",
+  data: {
+    key: "AIzaSyCFonS58Mi9FXxIvqe0p4YY1Rf8HVhcAIg",
+    q: "cats",
+    part: "snippet",
+    maxResults: 1,
+    type: "video",
+    videoEmbeddable: true,
+  },
+  success: function (data) {
+    console.log(data);
+  },
+  error: function (response) {
+    console.log("Request Failed");
+  },
+});
+
 let topics = [
   "trending",
   "happy",
